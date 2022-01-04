@@ -1,12 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://118.67.131.34:3306/instagram_clone?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
-    username: urimoim
-    password: Urimoim123!@#
-    #url: jdbc:mysql://localhost:3306/instagram_clone?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
-    #username: root
-    #password: 1q2w3e4r
+    url: jdbc:mysql://localhost:3306/instagram_clone?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+    username: root
+    password: 1q2w3e4r
 
   devtools:
     livereload:
