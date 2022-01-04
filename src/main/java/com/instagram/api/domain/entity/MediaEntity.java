@@ -17,12 +17,12 @@ public class MediaEntity {
     private Long id;
 
     @Column(name = "postId")
-    private String postId;
+    private int postId;
     private String contentType;
     private String contentUrl;
 
     @Builder
-    public MediaEntity(Long id, String postId, String contentType, String contentUrl) {
+    public MediaEntity(Long id, int postId, String contentType, String contentUrl) {
         this.id = id;
         this.postId = postId;
         this.contentType = contentType;

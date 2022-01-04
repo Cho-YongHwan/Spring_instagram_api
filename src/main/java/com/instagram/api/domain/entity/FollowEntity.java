@@ -18,11 +18,11 @@ public class FollowEntity {
     private Long id;
 
     @Column(name = "userId")
-    private Long userId;
-    private Long followingId;
+    private int userId;
+    private int followingId;
 
     @Builder
-    public FollowEntity(Long id, Long userId, Long followingId) {
+    public FollowEntity(Long id, int userId, int followingId) {
         this.id = id;
         this.userId = userId;
         this.followingId = followingId;

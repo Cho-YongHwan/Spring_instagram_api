@@ -10,7 +10,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Setter
 @Getter
@@ -37,8 +39,15 @@ public class StoryEntity {
     private LocalDateTime timeStart;
     private LocalDateTime timeEnd;
 
+    @PrePersist
+    public void createdAt() {
+        LocalDateTime plusOneDatetime = LocalDateTime.of(LocalDate.now().plusDays(1), LocalTime.now());
+        this.timeStart = LocalDateTime.now();
+        this.timeEnd = plusOneDatetime;
+    }
+
     @Builder
-    public StoryEntity(Long id, int username, String imageUrl, String caption, String location, String filter, String linkUrl, int duration, LocalDateTime timeStart, LocalDateTime timeEnd) {
+    public StoryEntity(Long id, int userId, String imageUrl, String caption, String location, String filter, String linkUrl, int duration, LocalDateTime timeStart, LocalDateTime timeEnd) {
         this.id = id;
         this.userId = userId;
         this.imageUrl = imageUrl;

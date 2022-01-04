@@ -31,4 +31,5 @@ public class PostController {
         System.out.println("getPostList");
         return postService.getPagingUserPost(pageable, userId);
     }
+
 }

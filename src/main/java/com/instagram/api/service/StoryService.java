@@ -18,8 +18,7 @@ public class StoryService {
     private StoryRepository storyRepository;
 
     public List<StoryEntity> getStoryByUserIdEndTime(long userId) {
-        LocalDateTime nowDatetime = LocalDateTime.of(LocalDate.now(), LocalTime.now());
-        List<StoryEntity> list = storyRepository.findByIdAndTimeEndGreaterThan(userId, nowDatetime);
+        List<StoryEntity> list = storyRepository.findByIdAndTimeEndGreaterThan(userId, LocalDateTime.now());
         return list;
     }
 
