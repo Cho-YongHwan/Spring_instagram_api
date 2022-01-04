@@ -20,15 +20,9 @@ public class UserService {
         return list;
     }
 
-    public Optional<UserEntity> getUserByUsername(String username) {
-        Optional<UserEntity> user = userRepository.findByUsername(username);
-
-        if (user == null) {
-            return null;
-        }
-
-        System.out.println(user);
-
+    public Optional<UserEntity> getUserById(long userId) {
+        Optional<UserEntity> user = userRepository.findById(userId);
         return user;
     }
+
 }

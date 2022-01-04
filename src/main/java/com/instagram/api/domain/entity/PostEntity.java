@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Setter
@@ -18,10 +19,10 @@ public class PostEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String userId;
+    private int userId;
     private String textcontent;
     private boolean commentsAllowed;
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @OneToOne
     @JoinColumn(name = "userId", insertable = false, updatable = false)
@@ -36,7 +37,7 @@ public class PostEntity {
     private List<CommentEntity> comment;
 
     @Builder
-    public PostEntity(Long id, String userId, String textcontent, Timestamp createdAt, UserEntity user, List<MediaEntity> media) {
+    public PostEntity(Long id, int userId, String textcontent, LocalDateTime createdAt, UserEntity user, List<MediaEntity> media) {
         this.id = id;
         this.userId = userId;
         this.textcontent = textcontent;

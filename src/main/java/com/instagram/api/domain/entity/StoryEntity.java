@@ -4,12 +4,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -21,25 +22,25 @@ public class StoryEntity {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
-    @NotEmpty
-    @Email
     @Size(min = 4, max = 20)
-    private String username;
+    private int userId;
 
     private String imageUrl;
     private String caption;
     private String location;
     private String filter;
     private String linkUrl;
+
+    @ColumnDefault("0") //default 0
     private int duration;
-    private Timestamp timeStart;
-    private Timestamp timeEnd;
+
+    private LocalDateTime timeStart;
+    private LocalDateTime timeEnd;
 
     @Builder
-    public StoryEntity(Long id, String username, String imageUrl, String caption, String location, String filter, String linkUrl, int duration, Timestamp timeStart, Timestamp timeEnd) {
+    public StoryEntity(Long id, int username, String imageUrl, String caption, String location, String filter, String linkUrl, int duration, LocalDateTime timeStart, LocalDateTime timeEnd) {
         this.id = id;
-        this.username = username;
+        this.userId = userId;
         this.imageUrl = imageUrl;
         this.caption = caption;
         this.location = location;

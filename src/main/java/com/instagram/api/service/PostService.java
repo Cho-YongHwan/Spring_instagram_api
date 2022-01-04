@@ -21,9 +21,15 @@ public class PostService {
     @Transactional
     public ResponseEntity<Map> getPagingPost(Pageable pageable) {
         Page<PostEntity> list = postRepository.findAll(pageable);
-        if (list == null || list.getTotalElements() == 0) {
-            return null;
-        }
+        Map result = new HashMap<>();
+        result.put("list", list);
+
+        return ResponseEntity.ok(result);
+    }
+
+    @Transactional
+    public ResponseEntity<Map> getPagingUserPost(Pageable pageable, int userId) {
+        Page<PostEntity> list = postRepository.findAllByUserId(pageable, userId);
 
         Map result = new HashMap<>();
         result.put("list", list);

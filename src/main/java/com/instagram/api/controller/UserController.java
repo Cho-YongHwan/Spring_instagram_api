@@ -25,9 +25,9 @@ public class UserController {
         return userService.getUserList();
     }
 
-    @GetMapping("/user/{username}")
-    public Optional<UserEntity> getUserByUsername(@PathVariable String username) {
-        return userService.getUserByUsername(username);
+    @GetMapping("/user/{userId}")
+    public Optional<UserEntity> getUserByUsername(@PathVariable long userId) {
+        return userService.getUserById(userId);
     }
 
 }

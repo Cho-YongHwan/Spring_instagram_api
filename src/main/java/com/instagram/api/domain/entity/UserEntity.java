@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Setter
@@ -36,14 +37,14 @@ public class UserEntity {
     private String password;
     private String bio;
     private String profileImageUrl;
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
-    private List<FollowEntity> follows;
+    private List<FollowEntity> follow;
 
     @Builder
-    public UserEntity(Long id, String username, String name, String email, String password, String bio, String profileImageUrl, Timestamp createdAt) {
+    public UserEntity(Long id, String username, String name, String email, String password, String bio, String profileImageUrl, LocalDateTime createdAt) {
         this.id = id;
         this.username = username;
         this.name = name;
